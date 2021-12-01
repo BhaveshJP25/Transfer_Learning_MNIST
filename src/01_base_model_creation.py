@@ -1,7 +1,6 @@
 import argparse
 import os
 import numpy as np
-from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, create_directories
 from src.utils.data_mgmt import get_data

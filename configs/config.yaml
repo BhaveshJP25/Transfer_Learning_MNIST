@@ -6,3 +6,11 @@ artifacts:
 source_data_dirs:
   - path_to_data_1
   - path_to_data_1
+
+params:
+  validation_datasize: 5000
+  seed: 2021
+  loss_function: sparse_categorical_crossentropy
+  metrics: accuracy
+  optimizer: SGD
+  num_classes: 10

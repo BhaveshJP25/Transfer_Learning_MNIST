@@ -5,7 +5,7 @@ from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, create_directories
 from src.utils.data_mgmt import get_data
-from src.utils.model import create_model
+from src.utils.model import create_model, save_model
 import tensorflow as tf
 
 STAGE = "Creating Base Model" ## <<< change stage name 
@@ -37,7 +37,29 @@ def main(config_path):
     OPTIMIZER = config["params"]["optimizer"]
     NUM_CLASSES = config["params"]["num_classes"]
 
+    #Model Creation
     model = create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES)
+
+    EPOCHS = config["params"]["epochs"]
+    VALIDATION_SET = (X_valid, y_valid)
+    
+    #Model training
+    history = model.fit(
+        X_train, y_train, 
+        epochs=EPOCHS, 
+        validation_data=VALIDATION_SET,
+        verbose=1)
+
+    artifacts_dir = config["artifacts"]["artifacts_dir"]
+    model_dir = config["artifacts"]["model_dir"]
+    model_name = config["artifacts"]["base_model_name"]
+
+    model_dir_path = os.path.join(artifacts_dir, model_dir)
+    os.makedirs(model_dir_path, exist_ok=True)
+
+    save_model(model, model_name, model_dir_path)
+    logging.info(f"Evaluation Metrics : {model.evaluate(X_test, y_test)}")
+    
 
 
 if __name__ == '__main__':

@@ -1,12 +1,4 @@
 # It contains all the configs required in the project
-
-artifacts:
-  KEY: value
-
-source_data_dirs:
-  - path_to_data_1
-  - path_to_data_1
-
 params:
   validation_datasize: 5000
   seed: 2021
@@ -14,3 +6,9 @@ params:
   metrics: accuracy
   optimizer: SGD
   num_classes: 10
+  epochs: 10
+
+artifacts:
+  artifacts_dir: artifacts
+  model_dir: model
+  base_model_name: base_model.h5

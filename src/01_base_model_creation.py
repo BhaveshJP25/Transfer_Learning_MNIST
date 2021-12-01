@@ -39,7 +39,7 @@ def main(config_path):
     #Model Creation
     model = create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES)
     # Logging Model Summary
-    logging.info(f"Transfer Learning Model Summary : \n{_log_model_summary(model)}")
+    logging.info(f"Base Model Summary : \n{_log_model_summary(model)}")
 
     EPOCHS = config["params"]["epochs"]
     VALIDATION_SET = (X_valid, y_valid)

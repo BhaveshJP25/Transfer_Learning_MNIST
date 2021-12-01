@@ -2,6 +2,7 @@ import tensorflow as tf
 import os
 import time
 import logging
+import io      # <<<<To log our model summary
 
 logging.basicConfig(
     filename=os.path.join("logs", 'running_logs.log'), 
@@ -9,6 +10,13 @@ logging.basicConfig(
     format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
     filemode="a"
     )
+
+## log our model summary information in logs
+def _log_model_summary(model):
+    with io.StringIO() as stream:
+        model.summary(print_fn= lambda x: stream.write(f"{x}\n"))
+        summary_str = stream.getvalue()
+    return summary_str
 
 def create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES):
 
@@ -21,12 +29,13 @@ def create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES):
 
     model_clf = tf.keras.models.Sequential(LAYERS)
 
-    # logging.info(f"Model Summary : \n {model_clf.summary()}")
-    model_clf.summary()
-
     model_clf.compile(loss=LOSS_FUNCTION,
                 optimizer=OPTIMIZER,
                 metrics=METRICS)
+
+    # model_clf.summary()
+    # Logging Model Summary
+    logging.info(f"Base Model Summary : \n{_log_model_summary(model_clf)}")
 
     return model_clf ## <<< untrained model
 

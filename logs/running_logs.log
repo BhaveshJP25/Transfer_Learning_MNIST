@@ -1,8 +1,31 @@
-[2021-12-01 18:14:11,627: INFO: 01_base_model_creation]: 
+[2021-12-01 18:25:54,317: INFO: 01_base_model_creation]: 
 ********************
-[2021-12-01 18:14:11,627: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model started <<<<<
-[2021-12-01 18:14:11,628: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2021-12-01 18:14:46,134: INFO: model]: Base Model is Saved at artifacts\model\20211201_181446_base_model.h5
-[2021-12-01 18:14:46,547: INFO: 01_base_model_creation]: Evaluation Metrics : [0.13755729794502258, 0.9585999846458435]
-[2021-12-01 18:14:46,578: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model completed!<<<<<
+[2021-12-01 18:25:54,317: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model started <<<<<
+[2021-12-01 18:25:54,319: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-12-01 18:25:55,615: INFO: model]: Base Model Summary : 
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ inputLayer (Flatten)        (None, 784)               0         
+                                                                 
+ hiddenLayer1 (Dense)        (None, 300)               235500    
+                                                                 
+ leaky_re_lu (LeakyReLU)     (None, 300)               0         
+                                                                 
+ hiddenLayer2 (Dense)        (None, 100)               30100     
+                                                                 
+ leaky_re_lu_1 (LeakyReLU)   (None, 100)               0         
+                                                                 
+ outputLayer (Dense)         (None, 10)                1010      
+                                                                 
+=================================================================
+Total params: 266,610
+Trainable params: 266,610
+Non-trainable params: 0
+_________________________________________________________________
+
+[2021-12-01 18:26:27,598: INFO: model]: Base Model is Saved at artifacts\model\20211201_182627_base_model.h5
+[2021-12-01 18:26:28,060: INFO: 01_base_model_creation]: Evaluation Metrics : [0.13755729794502258, 0.9585999846458435]
+[2021-12-01 18:26:28,094: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model completed!<<<<<
 

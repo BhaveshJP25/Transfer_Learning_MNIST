@@ -42,9 +42,9 @@ def main(config_path):
 
     artifacts_dir = config["artifacts"]["artifacts_dir"]
     model_dir = config["artifacts"]["model_dir"]
-    model_name = config["artifacts"]["base_model_name"]
+    base_model_name = config["artifacts"]["base_model_name"]
     #Load the Base Model
-    base_model_path = os.path.join(artifacts_dir, model_dir, model_name)
+    base_model_path = os.path.join(artifacts_dir, model_dir, base_model_name)
     base_model = tf.keras.models.load_model(base_model_path)
     logging.info(f"Loaded Base Model Summary : \n{_log_model_summary(base_model)}")
  
@@ -55,18 +55,18 @@ def main(config_path):
         logging.info(f"trainable status of after {layer.name}:{layer.trainable}")
 
     # Defining new model and compiling it
-    NUM_CLASSES = config["params"]["num_classes_transfer_model"]
+    NUM_CLASSES_EVEN_ODD = config["params"]["num_classes_transfer_model_even_odd"]
     base_layer = base_model.layers[: -1]
     new_model = tf.keras.models.Sequential(base_layer)
     new_model.add(
-        tf.keras.layers.Dense(NUM_CLASSES, activation="softmax", name="output_layer")
+        tf.keras.layers.Dense(NUM_CLASSES_EVEN_ODD, activation="softmax", name="output_layer")
     )
     logging.info(f"New model summary: \n{_log_model_summary(new_model)}")
   
     LOSS_FUNCTION = config["params"]["loss_function"]
     METRICS = config["params"]["metrics"]
     OPTIMIZER = config["params"]["optimizer"]
-    EPOCHS = config["params"]["epochs_transfer_model"]
+    EPOCHS = config["params"]["epochs_transfer_model_even_odd"]
     VALIDATION_SET = (X_valid, y_valid_bin)
 
     #Compiling New Model
@@ -80,11 +80,14 @@ def main(config_path):
         verbose=1)
 
     model_dir_path = os.path.join(artifacts_dir, model_dir)
-    
-    model_name = config["artifacts"]["transfer_model_name"]
+    model_name = config["artifacts"]["transfer_model_name_even_odd"]
     #Save the model
     save_model(new_model, model_name, model_dir_path)
     logging.info(f"Evaluation Metrics : {new_model.evaluate(X_test, y_test_bin)}")
+    test_samples = config["params"]["test_sample_in_logs_even_odd"]
+    logging.info(f"Actual Outputs : {y_test[:test_samples]}")
+    logging.info(f"Actual Binary Outputs : {y_test_bin[:test_samples]}")
+    logging.info(f"Predicted Outputs : {np.argmax(new_model.predict(X_test), axis=-1)[:test_samples]}")
     
 
 

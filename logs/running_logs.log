@@ -1,8 +1,42 @@
-[2021-12-01 21:38:16,818: INFO: 01_base_model_creation]: 
+[2021-12-01 21:59:29,578: INFO: 00_even_odd_model_without_transfer_learning]: 
 ********************
-[2021-12-01 21:38:16,818: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model started <<<<<
-[2021-12-01 21:38:16,820: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2021-12-01 21:38:18,083: INFO: 01_base_model_creation]: Base Model Summary : 
+[2021-12-01 21:59:29,579: INFO: 00_even_odd_model_without_transfer_learning]: >>>>> stage Even Odd Model Without Transfer Learning started <<<<<
+[2021-12-01 21:59:29,581: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-12-01 21:59:30,978: INFO: 00_even_odd_model_without_transfer_learning]: Scratch Bin Model Summary : 
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ inputLayer (Flatten)        (None, 784)               0         
+                                                                 
+ hiddenLayer1 (Dense)        (None, 300)               235500    
+                                                                 
+ leaky_re_lu (LeakyReLU)     (None, 300)               0         
+                                                                 
+ hiddenLayer2 (Dense)        (None, 100)               30100     
+                                                                 
+ leaky_re_lu_1 (LeakyReLU)   (None, 100)               0         
+                                                                 
+ outputLayer (Dense)         (None, 2)                 202       
+                                                                 
+=================================================================
+Total params: 265,802
+Trainable params: 265,802
+Non-trainable params: 0
+_________________________________________________________________
+
+[2021-12-01 22:00:07,861: INFO: model]: scratch_bin_model.h5 Model is Saved at artifacts\model\scratch_bin_model.h5
+[2021-12-01 22:00:08,219: INFO: 00_even_odd_model_without_transfer_learning]: Evaluation Metrics : [0.055040229111909866, 0.9854000210762024]
+[2021-12-01 22:00:08,219: INFO: 00_even_odd_model_without_transfer_learning]: Actual Outputs : [7 2 1 0 4]
+[2021-12-01 22:00:08,220: INFO: 00_even_odd_model_without_transfer_learning]: Actual Binary Outputs : [0 1 0 1 1]
+[2021-12-01 22:00:08,567: INFO: 00_even_odd_model_without_transfer_learning]: Predicted Outputs : [0 1 0 1 1]
+[2021-12-01 22:00:08,596: INFO: 00_even_odd_model_without_transfer_learning]: >>>>> stage Even Odd Model Without Transfer Learning completed!<<<<<
+
+[2021-12-01 22:00:56,351: INFO: 01_base_model_creation]: 
+********************
+[2021-12-01 22:00:56,351: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model started <<<<<
+[2021-12-01 22:00:56,354: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-12-01 22:00:57,612: INFO: 01_base_model_creation]: Base Model Summary : 
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -25,15 +59,15 @@ Trainable params: 266,610
 Non-trainable params: 0
 _________________________________________________________________
 
-[2021-12-01 21:38:55,872: INFO: model]: base_model.h5 Model is Saved at artifacts\model\base_model.h5
-[2021-12-01 21:38:56,279: INFO: 01_base_model_creation]: Evaluation Metrics : [0.1050318256020546, 0.9745000004768372]
-[2021-12-01 21:38:56,312: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model completed!<<<<<
+[2021-12-01 22:01:35,382: INFO: model]: base_model.h5 Model is Saved at artifacts\model\base_model.h5
+[2021-12-01 22:01:35,798: INFO: 01_base_model_creation]: Evaluation Metrics : [0.1050318256020546, 0.9745000004768372]
+[2021-12-01 22:01:35,829: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model completed!<<<<<
 
-[2021-12-01 21:40:04,984: INFO: 02_transfer_learning_even_odd]: 
+[2021-12-01 22:01:49,008: INFO: 02_transfer_learning_even_odd]: 
 ********************
-[2021-12-01 21:40:04,984: INFO: 02_transfer_learning_even_odd]: >>>>> stage Transfer Learning Even Odd started <<<<<
-[2021-12-01 21:40:04,987: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2021-12-01 21:40:06,261: INFO: 02_transfer_learning_even_odd]: Loaded Base Model Summary : 
+[2021-12-01 22:01:49,008: INFO: 02_transfer_learning_even_odd]: >>>>> stage Transfer Learning Even Odd started <<<<<
+[2021-12-01 22:01:49,011: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: Loaded Base Model Summary : 
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -56,17 +90,17 @@ Trainable params: 266,610
 Non-trainable params: 0
 _________________________________________________________________
 
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of before inputLayer:True
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of after inputLayer:False
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of before hiddenLayer1:True
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of after hiddenLayer1:False
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of before leaky_re_lu:True
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of after leaky_re_lu:False
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of before hiddenLayer2:True
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of after hiddenLayer2:False
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of before leaky_re_lu_1:True
-[2021-12-01 21:40:06,262: INFO: 02_transfer_learning_even_odd]: trainable status of after leaky_re_lu_1:False
-[2021-12-01 21:40:06,279: INFO: 02_transfer_learning_even_odd]: New model summary: 
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of before inputLayer:True
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of after inputLayer:False
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of before hiddenLayer1:True
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of after hiddenLayer1:False
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of before leaky_re_lu:True
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of after leaky_re_lu:False
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of before hiddenLayer2:True
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of after hiddenLayer2:False
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of before leaky_re_lu_1:True
+[2021-12-01 22:01:50,341: INFO: 02_transfer_learning_even_odd]: trainable status of after leaky_re_lu_1:False
+[2021-12-01 22:01:50,359: INFO: 02_transfer_learning_even_odd]: New model summary: 
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -89,18 +123,18 @@ Trainable params: 202
 Non-trainable params: 265,600
 _________________________________________________________________
 
-[2021-12-01 21:40:28,855: INFO: model]: transfer_model_even_odd.h5 Model is Saved at artifacts\model\transfer_model_even_odd.h5
-[2021-12-01 21:40:29,286: INFO: 02_transfer_learning_even_odd]: Evaluation Metrics : [0.07235351949930191, 0.9753999710083008]
-[2021-12-01 21:40:29,286: INFO: 02_transfer_learning_even_odd]: Actual Outputs : [7 2 1 0 4 1 4 9 5 9]
-[2021-12-01 21:40:29,287: INFO: 02_transfer_learning_even_odd]: Actual Binary Outputs : [0 1 0 1 1 0 1 0 0 0]
-[2021-12-01 21:40:29,681: INFO: 02_transfer_learning_even_odd]: Predicted Outputs : [0 1 0 1 1 0 1 0 0 0]
-[2021-12-01 21:40:29,712: INFO: 02_transfer_learning_even_odd]: >>>>> stage Transfer Learning Even Odd completed!<<<<<
+[2021-12-01 22:02:13,873: INFO: model]: transfer_model_even_odd.h5 Model is Saved at artifacts\model\transfer_model_even_odd.h5
+[2021-12-01 22:02:14,295: INFO: 02_transfer_learning_even_odd]: Evaluation Metrics : [0.07235351949930191, 0.9753999710083008]
+[2021-12-01 22:02:14,296: INFO: 02_transfer_learning_even_odd]: Actual Outputs : [7 2 1 0 4]
+[2021-12-01 22:02:14,296: INFO: 02_transfer_learning_even_odd]: Actual Binary Outputs : [0 1 0 1 1]
+[2021-12-01 22:02:14,664: INFO: 02_transfer_learning_even_odd]: Predicted Outputs : [0 1 0 1 1]
+[2021-12-01 22:02:14,693: INFO: 02_transfer_learning_even_odd]: >>>>> stage Transfer Learning Even Odd completed!<<<<<
 
-[2021-12-01 21:41:06,226: INFO: 03_transfer_learning_5_less_than_5]: 
+[2021-12-01 22:03:40,547: INFO: 03_transfer_learning_5_less_than_5]: 
 ********************
-[2021-12-01 21:41:06,226: INFO: 03_transfer_learning_5_less_than_5]: >>>>> stage Transfer Learning 5 Less Than 5 started <<<<<
-[2021-12-01 21:41:06,228: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2021-12-01 21:41:07,542: INFO: 03_transfer_learning_5_less_than_5]: Loaded Base Model Summary : 
+[2021-12-01 22:03:40,547: INFO: 03_transfer_learning_5_less_than_5]: >>>>> stage Transfer Learning 5 Less Than 5 started <<<<<
+[2021-12-01 22:03:40,549: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-12-01 22:03:41,894: INFO: 03_transfer_learning_5_less_than_5]: Loaded Base Model Summary : 
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -123,17 +157,17 @@ Trainable params: 266,610
 Non-trainable params: 0
 _________________________________________________________________
 
-[2021-12-01 21:41:07,543: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before inputLayer:True
-[2021-12-01 21:41:07,543: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after inputLayer:False
-[2021-12-01 21:41:07,543: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before hiddenLayer1:True
-[2021-12-01 21:41:07,543: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after hiddenLayer1:False
-[2021-12-01 21:41:07,543: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before leaky_re_lu:True
-[2021-12-01 21:41:07,544: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after leaky_re_lu:False
-[2021-12-01 21:41:07,544: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before hiddenLayer2:True
-[2021-12-01 21:41:07,544: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after hiddenLayer2:False
-[2021-12-01 21:41:07,544: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before leaky_re_lu_1:True
-[2021-12-01 21:41:07,544: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after leaky_re_lu_1:False
-[2021-12-01 21:41:07,568: INFO: 03_transfer_learning_5_less_than_5]: New model summary: 
+[2021-12-01 22:03:41,894: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before inputLayer:True
+[2021-12-01 22:03:41,894: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after inputLayer:False
+[2021-12-01 22:03:41,894: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before hiddenLayer1:True
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after hiddenLayer1:False
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before leaky_re_lu:True
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after leaky_re_lu:False
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before hiddenLayer2:True
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after hiddenLayer2:False
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of before leaky_re_lu_1:True
+[2021-12-01 22:03:41,895: INFO: 03_transfer_learning_5_less_than_5]: trainable status of after leaky_re_lu_1:False
+[2021-12-01 22:03:41,915: INFO: 03_transfer_learning_5_less_than_5]: New model summary: 
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -156,10 +190,10 @@ Trainable params: 202
 Non-trainable params: 265,600
 _________________________________________________________________
 
-[2021-12-01 21:42:03,963: INFO: model]: transfer_model_5_less_than_5.h5 Model is Saved at artifacts\model\transfer_model_5_less_than_5.h5
-[2021-12-01 21:42:04,387: INFO: 03_transfer_learning_5_less_than_5]: Evaluation Metrics : [0.10318005084991455, 0.9652000069618225]
-[2021-12-01 21:42:04,387: INFO: 03_transfer_learning_5_less_than_5]: Actual Outputs : [7 2 1 0 4 1 4 9 5 9 0 6 9 0 1]
-[2021-12-01 21:42:04,387: INFO: 03_transfer_learning_5_less_than_5]: Actual Binary Outputs : [1 0 0 0 0 0 0 1 1 1 0 1 1 0 0]
-[2021-12-01 21:42:04,727: INFO: 03_transfer_learning_5_less_than_5]: Predicted Outputs : [1 0 0 0 0 0 0 1 1 1 0 1 1 0 0]
-[2021-12-01 21:42:04,757: INFO: 03_transfer_learning_5_less_than_5]: >>>>> stage Transfer Learning 5 Less Than 5 completed!<<<<<
+[2021-12-01 22:04:05,654: INFO: model]: transfer_model_5_less_than_5.h5 Model is Saved at artifacts\model\transfer_model_5_less_than_5.h5
+[2021-12-01 22:04:06,057: INFO: 03_transfer_learning_5_less_than_5]: Evaluation Metrics : [0.10764148831367493, 0.9642999768257141]
+[2021-12-01 22:04:06,058: INFO: 03_transfer_learning_5_less_than_5]: Actual Outputs : [7 2 1 0 4]
+[2021-12-01 22:04:06,058: INFO: 03_transfer_learning_5_less_than_5]: Actual Binary Outputs : [1 0 0 0 0]
+[2021-12-01 22:04:06,388: INFO: 03_transfer_learning_5_less_than_5]: Predicted Outputs : [1 0 0 0 0]
+[2021-12-01 22:04:06,417: INFO: 03_transfer_learning_5_less_than_5]: >>>>> stage Transfer Learning 5 Less Than 5 completed!<<<<<
 

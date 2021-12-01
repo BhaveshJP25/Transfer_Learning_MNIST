@@ -7,16 +7,20 @@ params:
   optimizer: adam
   num_classes: 10
   epochs: 10
+  num_classes_scratch_bin: 2
+  epochs_transfer_scratch_bin: 10
   num_classes_transfer_model_even_odd: 2
   epochs_transfer_model_even_odd: 10
   num_classes_transfer_model_5_less_than_5: 2
-  epochs_transfer_model_5_less_than_5: 20
-  test_sample_in_logs_even_odd: 10
-  test_sample_in_5_less_than_5: 15
+  epochs_transfer_model_5_less_than_5: 10
+  test_sample_in_logs_scratch_bin: 5
+  test_sample_in_logs_even_odd: 5
+  test_sample_in_logs_5_less_than_5: 5
 
 artifacts:
   artifacts_dir: artifacts
   model_dir: model
   base_model_name: base_model.h5
+  scratch_bin_model_name: scratch_bin_model.h5
   transfer_model_name_even_odd: transfer_model_even_odd.h5
   transfer_model_name_5_less_than_5: transfer_model_5_less_than_5.h5

@@ -4,7 +4,7 @@ import numpy as np
 import logging
 from src.utils.common import read_yaml, create_directories
 from src.utils.data_mgmt import get_data
-from src.utils.model import create_model, save_model
+from src.utils.model import create_model, save_model, _log_model_summary
 import tensorflow as tf
 
 STAGE = "Creating Base Model" ## <<< change stage name 
@@ -38,6 +38,8 @@ def main(config_path):
 
     #Model Creation
     model = create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES)
+    # Logging Model Summary
+    logging.info(f"Transfer Learning Model Summary : \n{_log_model_summary(model)}")
 
     EPOCHS = config["params"]["epochs"]
     VALIDATION_SET = (X_valid, y_valid)

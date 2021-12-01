@@ -34,9 +34,6 @@ def create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES):
                 metrics=METRICS)
 
     # model_clf.summary()
-    # Logging Model Summary
-    logging.info(f"Base Model Summary : \n{_log_model_summary(model_clf)}")
-
     return model_clf ## <<< untrained model
 
 

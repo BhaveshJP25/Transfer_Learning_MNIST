@@ -1,8 +1,8 @@
-[2021-12-01 18:25:54,317: INFO: 01_base_model_creation]: 
+[2021-12-01 18:36:22,747: INFO: 01_base_model_creation]: 
 ********************
-[2021-12-01 18:25:54,317: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model started <<<<<
-[2021-12-01 18:25:54,319: INFO: common]: yaml file: configs/config.yaml loaded successfully
-[2021-12-01 18:25:55,615: INFO: model]: Base Model Summary : 
+[2021-12-01 18:36:22,747: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model started <<<<<
+[2021-12-01 18:36:22,749: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2021-12-01 18:36:24,015: INFO: 01_base_model_creation]: Transfer Learning Model Summary : 
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -25,7 +25,7 @@ Trainable params: 266,610
 Non-trainable params: 0
 _________________________________________________________________
 
-[2021-12-01 18:26:27,598: INFO: model]: Base Model is Saved at artifacts\model\20211201_182627_base_model.h5
-[2021-12-01 18:26:28,060: INFO: 01_base_model_creation]: Evaluation Metrics : [0.13755729794502258, 0.9585999846458435]
-[2021-12-01 18:26:28,094: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model completed!<<<<<
+[2021-12-01 18:36:57,282: INFO: model]: Base Model is Saved at artifacts\model\20211201_183657_base_model.h5
+[2021-12-01 18:36:57,746: INFO: 01_base_model_creation]: Evaluation Metrics : [0.13755729794502258, 0.9585999846458435]
+[2021-12-01 18:36:57,782: INFO: 01_base_model_creation]: >>>>> stage Creating Base Model completed!<<<<<
 

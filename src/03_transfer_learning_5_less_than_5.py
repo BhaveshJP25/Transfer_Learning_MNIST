@@ -84,7 +84,7 @@ def main(config_path):
     #Save the model
     save_model(new_model, model_name, model_dir_path)
     logging.info(f"Evaluation Metrics : {new_model.evaluate(X_test, y_test_bin)}")
-    test_samples = config["params"]["test_sample_in_5_less_than_5"]
+    test_samples = config["params"]["test_sample_in_logs_5_less_than_5"]
     logging.info(f"Actual Outputs : {y_test[:test_samples]}")
     logging.info(f"Actual Binary Outputs : {y_test_bin[:test_samples]}")
     logging.info(f"Predicted Outputs : {np.argmax(new_model.predict(X_test), axis=-1)[:test_samples]}")

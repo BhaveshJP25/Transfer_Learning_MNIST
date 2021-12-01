@@ -37,12 +37,7 @@ def create_model(LOSS_FUNCTION, OPTIMIZER, METRICS, NUM_CLASSES):
     return model_clf ## <<< untrained model
 
 
-def get_unique_filename(filename):
-    unique_filename = time.strftime(f"%Y%m%d_%H%M%S_{filename}")
-    return unique_filename
-
 def save_model(model, model_name, model_dir):
-    unique_filename = get_unique_filename(model_name)
-    path_to_model = os.path.join(model_dir, unique_filename)
+    path_to_model = os.path.join(model_dir, model_name)
     model.save(path_to_model)
-    logging.info(f"Base Model is Saved at {path_to_model}")
+    logging.info(f"{model_name} Model is Saved at {path_to_model}")
